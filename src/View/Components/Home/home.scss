@@ -1,0 +1,31 @@
+@mixin center {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+@mixin center-mobile {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.home-bg {
+  min-width: 100vw;
+  width: fit-content;
+  min-height: 90vh;
+  height: fit-content;
+  background: aliceblue;
+  @include center;
+}
+.boards-container {
+  @include center;
+}
+@media screen and (max-width: 620px) {
+  .boards-container {
+    @include center-mobile;
+  }
+}

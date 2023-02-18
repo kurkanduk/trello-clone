@@ -1,0 +1,71 @@
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tw-container {
+  @include center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  cursor: default;
+}
+.tw-bg {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  flex-direction: row;
+  background-color: aliceblue;
+  width: 60%;
+  min-height: 80%;
+  height: fit-content;
+  border-radius: 2px;
+}
+.tw-title {
+  font-size: 25px;
+  margin: 0;
+}
+.tw-about-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 80%;
+  height: 90%;
+}
+.tw-about-container > * {
+  margin-left: 10px;
+}
+.tw-column {
+  margin: 0;
+  font-size: 15px;
+  color: grey;
+}
+.tw-title-bg {
+  align-self: flex-start;
+  justify-self: flex-start;
+  height: 40px;
+}
+.tw-button-container {
+  width: 20%;
+}
+.tw-description-container {
+  width: 100%;
+  height: 100%;
+  @include center;
+  margin-top: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.tw-description-title {
+  font-size: 25px;
+  align-self: flex-start;
+}
+.tw-description {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: grey;
+}

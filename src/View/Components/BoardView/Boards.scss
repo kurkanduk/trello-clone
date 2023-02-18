@@ -1,0 +1,12 @@
+.bg {
+  width: fit-content;
+  min-width: 100vw;
+  height: 90vh;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  &::-webkit-scrollbar {
+    width: 100px;
+  }
+}

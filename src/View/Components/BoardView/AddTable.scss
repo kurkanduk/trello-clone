@@ -1,0 +1,40 @@
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin glassmorphism {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.add-table-bg {
+  @include center;
+  width: fit-content;
+  min-width: 200px;
+  height: 40px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: ease-in 0.2s;
+  margin: 15px;
+  background: rgba(0, 0, 0, 0.164);
+  border-radius: 2px;
+  border: 2px dashed rgb(0, 0, 0);
+  &:hover > * {
+    color: rgb(255, 255, 255);
+  }
+  &:hover {
+    border-color: white;
+    background-color: rgb(135, 135, 135);
+  }
+}
+.add-table-title {
+  transition: ease-in 0.2s;
+  @include center;
+  font-size: 25px;
+  color: rgb(0, 0, 0);
+}

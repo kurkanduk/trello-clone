@@ -1,0 +1,70 @@
+header {
+  width: 96vw;
+  position: fixed;
+  z-index: 2;
+  height: 100px;
+  border-bottom: 1px solid rgb(234, 234, 234);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw 0 2vw;
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+}
+.layoutButton {
+  width: 50px;
+  height: 50px;
+  border: 1px solid white;
+  border-radius: 2px;
+  background-color: black;
+  cursor: pointer;
+  transition: 0.4s;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.layoutButton:hover {
+  background-color: white;
+  border-color: black;
+}
+
+.home-svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+  transition: 0.5s;
+}
+button:hover > .home-svg {
+  fill: black;
+  animation: upsize 0.4s ease-in-out;
+}
+@keyframes upsize {
+  0% {
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    width: 25px;
+    height: 25px;
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    width: 30px;
+    height: 30px;
+  }
+}
+.container {
+  position: absolute;
+  top: 100px;
+  width: 100vw;
+  min-height: calc(100vh - 100px);
+  height: fit-content;
+  background-color: black;
+}
