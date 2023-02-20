@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import "./addTask.scss";
-import addTask from "./addTaskToDb";
+import addTask from "../../DbRequests/AddTaskToDb";
 
 const AddTask = (tableId: any) => {
   let boardId = useParams();

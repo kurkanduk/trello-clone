@@ -1,4 +1,4 @@
-import { deleteBoard } from "./deleteBoard";
+import { deleteBoard } from "../../DbRequests/DeleteBoard";
 import "./deleteButton.scss";
 const DeleteBoardButton = (id: any) => {
   let del = () => {

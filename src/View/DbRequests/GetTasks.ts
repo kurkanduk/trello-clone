@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { db } from "../../../firebase/initFirebase";
+import { db } from "../../firebase/initFirebase";
 import { collection, onSnapshot, query, doc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
@@ -11,9 +11,18 @@ const GetTasks = (tableId: any) => {
   const [loading, setLoading] = useState<any>(false);
   let dataGet = async (boardId: any, tableId: any) => {
     const auth = getAuth();
-    const user:any = auth.currentUser;
+    const user: any = auth.currentUser;
     const q = query(
-      collection(db, "users",user.uid,"boards", boardId.id, "tables", tableId, "tasks")
+      collection(
+        db,
+        "users",
+        user.uid,
+        "boards",
+        boardId.id,
+        "tables",
+        tableId,
+        "tasks"
+      )
     );
     onSnapshot(q, (querySnapshot) => {
       setData(
