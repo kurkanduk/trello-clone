@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./addForm.scss";
-import addBoard from "./addBoard";
+import addBoard from "../../DbRequests/AddBoard";
 import { checkValidity } from "./boardNameValidation";
 
 let AddForm = (setShow: any) => {

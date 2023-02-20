@@ -1,17 +1,16 @@
 import "./list.scss";
 import AddTask from "./addTask";
-import GetTasks from "./GetTasks";
-import { useDrag } from "react-dnd";
+import getTasks from "../../DbRequests/GetTasks";
 import { useDrop } from "react-dnd";
 
 import { useParams } from "react-router";
-import DeleteTask from "./deleteTask";
-import deleteTable from "./DeleteTable";
+import DeleteTask from "../../DbRequests/DeleteTask";
+import deleteTable from "../../DbRequests/DeleteTable";
 import Task from "./task";
-import addTask from "./addTaskToDb";
+import addTask from "../../DbRequests/AddTaskToDb";
 
 const List = (data: any) => {
-  let tasks = GetTasks(data.id);
+  let tasks = getTasks(data.id);
   const board = useParams();
   const deleteTableConfirmation = () => {
     if (window.confirm("This will delete table! Are you sure?")) {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase/initFirebase";
 import { collection, onSnapshot, query } from "firebase/firestore";
-import addBoard from "../AddForm/addBoard";
+import addBoard from "../../DbRequests/AddBoard";
 import { getAuth } from "firebase/auth";
 
 import "../Boards/boards.scss";
@@ -13,12 +13,12 @@ import { AddBoard } from "../Boards/AddBoard/addBoard";
 
 export const HomePage = () => {
   const auth = getAuth();
-  const user:any = auth.currentUser;
+  const user: any = auth.currentUser;
 
   const [boards, setBoards] = useState<any>([]);
   const [isPressed, setPressed] = useState<boolean>(false);
   useEffect(() => {
-    const q = query(collection(db, "users", user.uid ,"boards"));
+    const q = query(collection(db, "users", user.uid, "boards"));
     onSnapshot(q, (querySnapshot) => {
       setBoards(
         querySnapshot.docs.map((doc: any) => ({

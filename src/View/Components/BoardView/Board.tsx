@@ -5,11 +5,11 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 import "./Boards.scss";
 
-import getTables from "./getTables";
+import getTables from "../../DbRequests/GetTables";
 import List from "../lists/list";
 import AddTable from "./AddTable";
 import { Form } from "../Form/Form";
-import createTable from "./CreateTable";
+import createTable from "../../DbRequests/CreateTable";
 
 type id = {
   id: string;

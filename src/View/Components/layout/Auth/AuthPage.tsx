@@ -1,53 +1,68 @@
-import React, { useState } from 'react';
-import "./auth.scss"
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
+import "./auth.scss";
+import {
+  getAuth,
+  setPersistence,
+  signInWithEmailAndPassword,
+  browserSessionPersistence,
+} from "firebase/auth";
 
-
-const AuthPage = (props:{setAuth: any}) => {
-  const [email, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (event:any) => {
+const AuthPage = (props: { setAuth: any; isSignUp: any }) => {
+  const [email, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  let signUpHandler = () => {
+    props.isSignUp(false);
+  };
+  const handleSubmit = (event: any) => {
     event.preventDefault();
-const auth = getAuth();
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    props.setAuth(true);
-    const user = userCredential.user;
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+    const auth = getAuth();
+    setPersistence(auth, browserSessionPersistence).then(() => {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          props.setAuth(true);
+          const user = userCredential.user;
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+    });
   };
 
   return (
-    <div className='container'>
-      <div className='auth-bg'>
-        <form className="auth-form"onSubmit={handleSubmit}>
+    <div className="container">
+      <div className="auth-bg">
+        <div className="login">
+          <h1>Sign In</h1>
+        </div>
+        <form className="auth-form" onSubmit={handleSubmit}>
           <input
-            className='auth-input'
+            className="auth-input"
             type="email"
             placeholder="Username"
             value={email}
-            onChange={event => setUsername(event.target.value)}
+            onChange={(event) => setUsername(event.target.value)}
           />
           <input
-            className='auth-input'
+            className="auth-input"
             type="password"
             placeholder="Password"
             value={password}
-            onChange={event => setPassword(event.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
           />
-          <button className="auth-input"onClick={handleSubmit}>Sign Up</button>
+            <input
+              type="submit"
+              name="sent"
+              value="Sign In"
+              onClick={handleSubmit}
+            ></input>
         </form>
-        <div className="drops">
-          <div className="drop drop-1"></div>
-          <div className="drop drop-2"></div>
-          <div className="drop drop-3"></div>
-          <div className="drop drop-4"></div>
-          <div className="drop drop-5"></div>
-        </div>
+        <span className="already-have">
+          Don't have account?
+          <div className="sign-in-button" onClick={signUpHandler}>
+            Sign Up
+          </div>
+        </span>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { ReactComponent as ReactLogo } from "./trash.svg";
 import { ReactComponent as ReactLogo2 } from "./pen.svg";
-import DeleteTask from "./deleteTask";
+import DeleteTask from "../../DbRequests/DeleteTask";
 import { useDrag } from "react-dnd";
 import TaskWindow from "./TaskWindow";
 
@@ -19,7 +19,7 @@ let Task = (props: { data: any; boardId: any; tableId: any; taskId: any }) => {
   };
   return (
     <div className="taskContainer" draggable="true" ref={drag}>
-     {/* <TaskWindow dat=""></TaskWindow> */}
+      {/* <TaskWindow dat=""></TaskWindow> */}
       <h1 className="taskTitle">{props.data.text}</h1>
       <div className="bottom-bar">
         <div
